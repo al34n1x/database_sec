@@ -3,6 +3,7 @@
 Welcome to the Database Security Introduction Course. The goal of this training is to provide you with basic understanding of SQL and NO-SQL databases, as well as how to use some basic tools that will help you to effectively and securely manage your organization's most importan asset, your data.
 
 ![](./img/layers-of-database-security.png)
+*Source:https://phoenixnap.com/kb/database-security*
 
 
 ## Assumptions
