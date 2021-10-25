@@ -6,7 +6,7 @@ For the purpose of this lab, we will use [MySQL Server](https://dev.mysql.com/do
 
 # Requirements
 
-1. Docker
+1. [Docker](https://docs.docker.com/engine/install/)
 2. [MySQL Workbench](https://www.mysql.com/products/workbench/) *Optional*
 3. Basic SQL Knowledge
 
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS orders (
 
 ```
 
-NOTE: Please refer to the [Database Creation Script]() if you need further guidance on how to build your database.
+*NOTE: Refer to the [Database Creation Script](https://raw.githubusercontent.com/al34n1x/database_sec/main/Lab1/database_creation.sql?token=ACLJTG5ZGROWLQMCRALXRVLBO2KKW) if you need further guidance on how to build your database.*
 
 ## Insert Data
 
@@ -80,18 +80,77 @@ insert into customers values
 # Verify Data Loading
 With the data loaded, let's run some queries to pull out data from the tables.
 
+You can pull out the data from the `customers` table by using the following command:
 
 ```
 select * from customers;
 ```
 
+Now, let's list some specific columns:
+
 ```
 select 
     c.customer_id as id,
     c.nombre as Nombre,
-    c.address as Address,
-    c.website as Website,
     c.credit_limit as Credit
-  from customers c
+  from customers c;
 ```
 
+Let's do the same for the `Products` table:
+
+```
+select
+		p.idProducts as Products,
+		p.Product_Name as ProductName,
+        p.Description,
+        p.Standard_Cost as Cost,
+        p.List_Price as ListPrice
+	from products p;
+```
+
+Now it's your turn of running the follow reports.
+
+* Numbers of clients
+* Managers and amount of direct reports
+
+
+## Views
+
+Now that the database is created and data is loaded, let's add some contraints to ensure data safety.
+One of the best practices used when developing applications is to create specifics views rather than give the app direct access to the tables.
+
+You may be wondering, what is a view? A view is a specific look on data from one or more tables combined. A view consists of a stored query accessible as a **virtual table** composed of the result of a quiery. Unlike ordinary tables, a view does not form part of the physical schema.
+
+There are several restrictions that apply to views. Here are some of them:
+
+* The SELECT statement cannot contain a subquery
+* The SELECT statement cannot refer to system or user variables
+* Any table or view referred to in the definition must exist
+* A temporary VIEW cannot be created
+* A VIEW cannot be associated with a trigger
+
+
+Let's create a view for the `Products` table based on the query used in the step before.
+
+```
+CREATE VIEW `products_view` AS 
+	select
+		p.idProducts as Products,
+		p.Product_Name as ProductName,
+        p.Description,
+        p.Standard_Cost as Cost,
+        p.List_Price as ListPrice
+	from products p;
+```
+
+Now let's check the view
+
+```
+select * from products_view
+```
+As you can see, the colums are different from the original table. Views allow you to control data access while delivering easy-to-consume resources for developers and end users. 
+
+***
+## What you have done
+
+At this point you have created a database using MySQL as DBMS, load sample data, run some basic queries, to finally create views that allow you to provide safe and easy access to data to consumers/developers.
