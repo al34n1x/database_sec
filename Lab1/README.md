@@ -1,3 +1,9 @@
+# Introduction
+
+We assume that you have a basic SQL knowledge to run the following DDL/DML instructions.
+For further references, please visit [SQL Intro](https://www.w3schools.com/sql/sql_intro.asp). Keep in mind that some of the instructions may vary depending on the DBMS vendor. Check the vendor documentation before proceding with the database implementation.
+For the purpose of this lab, we will use [MySQL Server](https://dev.mysql.com/doc/)
+
 # Requirements
 
 1. Docker
@@ -9,14 +15,14 @@
 ```
 docker run --name some-mysql -v /my/own/datadir:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
 ```
-
+Now we are ready to start with the lab.
 
 # Lab 1
 
 ## Create Table
 
-As part of this Lab you will create a database and model data as part of a business requirement.
-We assume that you have a basic SQL knowledge to run the following DDL/DML instructions.
+As part of this Lab you will create a database from a business requirement.
+
 
 ## Business Requirement
 Your organization requires to build the persistency layer using MySQL as your DBMS.
@@ -56,6 +62,8 @@ CREATE TABLE IF NOT EXISTS orders (
 ) ENGINE=InnoDB AUTO_INCREMENT=1;
 
 ```
+
+NOTE: Please refer to the [Database Creation Script]() if you need further guidance on how to build your database.
 
 ## Insert Data
 
