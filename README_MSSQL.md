@@ -114,3 +114,16 @@ ALTER COLUMN Email varchar(200) MASKED WITH (FUNCTION = 'default()');
 EXEC ShowMaskingStatus
 ```
 
+### Viewing Email Column as a DataUser
+
+```
+-- Execute SELECT as DataUser
+EXECUTE AS USER = 'DataUser';  
+
+-- View monthly sales 
+SELECT s.SaleId,s.SellingDate,s.Customer,s.Email,s.Product,s.Product from dbo.MonthlySale s
+
+-- Revert the User back to what user it was before
+REVERT;
+```
+
