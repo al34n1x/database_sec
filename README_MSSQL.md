@@ -1,8 +1,8 @@
 # Requirements
 
-(Visual Studio)[https://visualstudio.microsoft.com/es/] 
+[Visual Studio](https://visualstudio.microsoft.com/es/)
 
-(Visual Studio Plugin)[https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql]
+[Visual Studio Plugin](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql)
 
 ## Docker
 
