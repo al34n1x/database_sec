@@ -243,4 +243,4 @@ Please remember the following things:
 5. You can use Custom string data masking to hide a debit card number in a transaction report by showing only the last two or four digits as you might have seen in shopping receipts.
 
 
-
+[Source](https://codingsight.com/dynamic-data-masking-in-sql-server-for-advanced-users/?ref=morioh.com&utm_source=morioh.com)
