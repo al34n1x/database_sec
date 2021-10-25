@@ -1,8 +1,8 @@
 # Requirements
 
-VSCode/Oracle SQL Developer
+(Visual Studio)[https://visualstudio.microsoft.com/es/] 
 
-SQL Developer plugin: 
+(Visual Studio Plugin)[https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql]
 
 ## Docker
 
