@@ -101,6 +101,11 @@ There are four common types of Dynamic data masking in SQL Server:
 
 ## Implementing Default Data Masking
 
+### Business Requirements
+
+Now suppose you receive a business requirement which states that e-mail addresses of the customers should be completely hidden (masked) due to the sensitivity of this information.
+The best way to meet this business requirement is to mask the Email column using Dynamic data masking (DDM).
+
 ### E-mail Address Default Data Masking
 
 ```
@@ -126,4 +131,116 @@ SELECT s.SaleId,s.SellingDate,s.Customer,s.Email,s.Product,s.Product from dbo.Mo
 -- Revert the User back to what user it was before
 REVERT;
 ```
+
+## Implementing Partial Data Masking
+
+### Business Requirements
+
+Now think of a business requirement in which you have been asked to partially hide the name of the customers in such a way that only the first character of the name remains visible. The best way to meet this business requirement is to mask the Customer column using Partial dynamic data masking.
+
+### Partial Data Masking of Customer Names
+
+```
+-- Partial data masking of Customer names
+ALTER TABLE MonthlySale
+ALTER COLUMN [Customer] ADD MASKED WITH (FUNCTION = 'partial(1,"XXXXXXX",0)')
+```
+
+### Checking status
+
+```
+EXEC ShowMaskingStatus
+```
+
+### Viewing the Customer Column as a DataUser
+
+```
+-- Execute SELECT as DataUser
+EXECUTE AS USER = 'DataUser';  
+
+-- View monthly sales as DataUser
+SELECT s.SaleId,s.SellingDate,s.Customer,s.Email,s.Product,s.Product from dbo.MonthlySale s
+
+-- Revert the User back to what user it was before
+REVERT;
+```
+
+## Implementing Random Data Masking
+
+### Business Requirement
+You receive a business requirement which states that product price should be masked with a random range of numbers so that users with low privileges must not know the exact prices of the product for privacy reasons. The best way to meet this business specification is to mask the TotalPrice column using random dynamic data masking.
+
+### Random Data Masking of the TotalPrice Column
+
+```
+--Random dynamic data masking of TotalPrice column 
+ALTER TABLE MonthlySale
+ALTER COLUMN [TotalPrice] decimal(10,2) MASKED WITH (FUNCTION = 'random(1, 12)')
+```
+
+### Checking status
+
+```
+EXEC ShowMaskingStatus
+```
+
+### Viewing the TotalPrice Column as a DataUser
+
+```
+-- Execute SELECT as DataUser
+EXECUTE AS USER = 'DataUser';  
+
+-- View monthly sales 
+SELECT s.SaleId,s.SellingDate,s.Customer,s.Email,s.Product,s.TotalPrice from dbo.MonthlySale s
+
+-- Revert the User back to what user it was before
+REVERT;
+```
+
+
+## Implementing Custom String Data Masking
+Custom string data masking as its name implies adds custom character to hide a column by making it very difficult to guess its contents. Please remember that Custom string data masking is used in conjunction with Partial data masking by customizing the character to mask the actual column values. In other words, Custom string data masking is an enhanced form of Partial data masking.
+
+### Business Requirement
+Consider a business requirement to only show the first and last character of the Product column while the rest of the characters should be hidden or masked with hyphens (-). The best way to meet this business specification is to mask the Product column using Partial dynamic data masking with the required custom string.
+
+
+### Customer String Data Masking of Selling Data
+
+```
+--Custom string dynamic data masking of Product column 
+ALTER TABLE MonthlySale
+ALTER COLUMN [Product] ADD MASKED WITH (FUNCTION = 'partial(1,"---",1)')
+```
+
+### Checking status
+
+```
+EXEC ShowMaskingStatus
+```
+
+
+### Viewing the Product Column as a DataUser
+
+```
+-- Execute SELECT as DataUser
+EXECUTE AS USER = 'DataUser';  
+
+-- View monthly sales 
+SELECT s.SaleId,s.SellingDate,s.Customer,s.Email,s.Product,s.TotalPrice from dbo.MonthlySale s
+
+-- Revert the User back to what user it was before
+REVERT;
+```
+
+
+## Best Practices
+Please remember the following things:
+1. Dynamic data masking does not protect or encrypt the column data so it should not be used for that purpose.
+2. The potential user who is supposed to see the masked data must have very limited access to view the data and should not at all be given Update permission to exploit the data.
+3. The potential user even with SELECT only permission can run exhaustive queries to guess the correct value so please beware of that.
+4. You can also use ALTER COLUMN Email ADD MASKED WITH (FUNCTION = ’email()’) to mask e-mail columns rather than using Default dynamic masking.
+5. You can use Custom string data masking to hide a debit card number in a transaction report by showing only the last two or four digits as you might have seen in shopping receipts.
+
+
 
