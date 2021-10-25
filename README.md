@@ -33,10 +33,10 @@ Data masking, data subsetting, and data redaction are techniques for reducing ex
 
 Under the General Data Protection Regulation (GDPR), data breaches can lead to fines of up to four percent of a company’s global annual turnover or €20 million, whichever is greater. Companies collecting and handling data in the EU will need to consider and manage their data handling practices including the following requirements:
 
-    Data Security. Companies must implement an appropriate level of security, encompassing both technical and organizational security controls, to prevent data loss, information leaks, or other unauthorized data processing operations. The GDPR encourages companies to incorporate encryption, incident management, and network and system integrity, availability, and resilience requirements into their security program.
-    Extended rights of individuals. Individuals have a greater control—and ultimately greater ownership of–their own data. They also have an extended set of data protection rights, including the right to data portability and the right to be forgotten.
-    Data breach notification. Companies have to inform their regulators and/or the impacted individuals without undue delay after becoming aware that their data has been subject to a data breach.
-    Security audits. Companies will be expected to document and maintain records of their security practices, to audit the effectiveness of their security program, and to take corrective measures where appropriate.
+Data Security. Companies must implement an appropriate level of security, encompassing both technical and organizational security controls, to prevent data loss, information leaks, or other unauthorized data processing operations. The GDPR encourages companies to incorporate encryption, incident management, and network and system integrity, availability, and resilience requirements into their security program.
+Extended rights of individuals. Individuals have a greater control—and ultimately greater ownership of–their own data. They also have an extended set of data protection rights, including the right to data portability and the right to be forgotten.
+Data breach notification. Companies have to inform their regulators and/or the impacted individuals without undue delay after becoming aware that their data has been subject to a data breach.
+Security audits. Companies will be expected to document and maintain records of their security practices, to audit the effectiveness of their security program, and to take corrective measures where appropriate.
 
 
 For further reference, you can read  the following article: *[What is data Security?](https://www.oracle.com/es/security/database-security/what-is-data-security/)*
