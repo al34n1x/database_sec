@@ -8,7 +8,7 @@
 ## Running MySQL with Docker
 
 ```
-docker run --name some-mysql -v /my/own/datadir:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
+docker run --name mysql -p 3306:3306 -v /your_directory/MySQL:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=MyPassword -d mysql
 ```
 
 
