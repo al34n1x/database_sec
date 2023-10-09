@@ -26,7 +26,7 @@ Once the container is running, we need to set up the admin password. Open a comm
 
 2. Open the mongoDB CLI:
     ```
-    mongo
+    mongosh
     ```
 
 3. Change to the `admin` database:
@@ -60,7 +60,7 @@ mongodb://root:root@localhost
 
 ## Exercise
 
-1. Download the [retail dataset](https://raw.githubusercontent.com/al34n1x/DataScience/master/data/retail.csv)
+1. Download the [retail dataset](./data/retail.csv)
 
     For those using the mongoDB Cli, you can use the following command
 

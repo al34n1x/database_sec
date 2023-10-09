@@ -13,7 +13,7 @@ For the purpose of this lab, we will use [MySQL Server](https://dev.mysql.com/do
 ## Running MySQL with Docker
 
 ```
-docker run --name some-mysql -v /my/own/datadir:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
+docker run --name mysql -p 3306:3306 -v MySQL:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql
 ```
 Now we are ready to start with the lab.
 
