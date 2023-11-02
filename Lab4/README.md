@@ -12,6 +12,12 @@ Install Docker Windows/Mac/Linux
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=yourStrong(!)Password" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest
 ```
 
+If you are running the lab on a M1/M2 chip, run the following command instead.
+
+```
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=yourStrong(!)Password" -p 1433:1433 -d --name sqledge mcr.microsoft.com/azure-sql-edge
+```
+
 # Lab
 
 ## Setting up Sample Database
